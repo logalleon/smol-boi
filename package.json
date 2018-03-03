@@ -1,0 +1,15 @@
+{
+  "name": "smol-boi",
+  "version": "0.0.1",
+  "description": "URL shorterner",
+  "main": "index.js",
+  "repository": "git@github.com:logalleon/smol-boi.git",
+  "author": "Logan Sobczak <loganhsobczak@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "browserify": "^16.1.0",
+    "express": "^4.16.2",
+    "mysql2": "^1.5.2",
+    "sequelize": "^4.35.1"
+  }
+}
