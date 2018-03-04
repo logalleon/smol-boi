@@ -15,5 +15,11 @@
     "reactify": "^1.1.1",
     "sequelize": "^4.35.1",
     "uglifyify": "^4.0.5"
+  },
+  "devDependencies": {
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.7.0"
   }
 }
