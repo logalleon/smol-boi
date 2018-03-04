@@ -10,7 +10,8 @@ module.exports = {
     // Don't update timestamps
     silent: true,
     indexes: [
-      { fields: ['hash'] }
+      { fields: ['hash'] },
+      { fields: ['url'] }
     ]
   },
   schema: {
@@ -22,6 +23,10 @@ module.exports = {
     url: {
       type: STRING(URL_LENGTH_LIMIT),
       allowNull: false
+    },
+    timesGenerated: {
+      type: INTEGER,
+      defaultValue: 1
     }
   }
 }

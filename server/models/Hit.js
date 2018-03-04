@@ -1,3 +1,5 @@
+const { DATE } = require('sequelize');
+
 module.exports = {
   name: 'hit',
   options: {
@@ -6,6 +8,9 @@ module.exports = {
   },
   schema: {
     // Foreign Key RedirectHash
-    // CreatedAt
+    createdAt: {
+      type: DATE,
+      allowNull: false
+    }
   }
 }
