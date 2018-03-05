@@ -1,6 +1,6 @@
 const {
   STRING,
-  INTEGER
+  INTEGER,
 } = require('sequelize');
 const { URL_LENGTH_LIMIT } = require('../../config');
 
@@ -11,22 +11,22 @@ module.exports = {
     silent: true,
     indexes: [
       { fields: ['hash'] },
-      { fields: ['url'] }
-    ]
+      { fields: ['url'] },
+    ],
   },
   schema: {
     hash: {
       type: STRING(8),
       allowNull: false,
-      primaryKey: true
+      primaryKey: true,
     },
     url: {
       type: STRING(URL_LENGTH_LIMIT),
-      allowNull: false
+      allowNull: false,
     },
     timesGenerated: {
       type: INTEGER,
-      defaultValue: 1
-    }
-  }
-}
+      defaultValue: 1,
+    },
+  },
+};

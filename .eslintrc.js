@@ -7,5 +7,7 @@ module.exports = {
         "react/jsx-filename-extension": 0,
         "space-before-function-paren": 0,
         "jsx-quotes": ["error", "prefer-single"],
+        "class-methods-use-this": 0,
+        "no-else-return": 0,
     }
 };
