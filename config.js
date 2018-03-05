@@ -1,4 +1,4 @@
-const {env: ENV} = process;
+const { env: ENV } = process;
 
 module.exports = {
   HOST: 'http://smol-boi.com',
@@ -10,9 +10,9 @@ module.exports = {
     USER: ENV.DB_USER || 'root',
     PASS: ENV.DB_PASS || 'admin',
     DATABASE: ENV.DB_DATABASE || 'smol_boi',
-    DIALECT: ENV.DB_DIALECT || 'mysql'
+    DIALECT: ENV.DB_DIALECT || 'mysql',
   },
   URL_LENGTH_LIMIT: 500,
   HASH_SIZE: 8,
-  FOUR_OH_FOUR: '/not-found'
+  FOUR_OH_FOUR: '/not-found',
 };

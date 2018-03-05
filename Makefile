@@ -1,7 +1,8 @@
 dist := ./public/
 src := ./src/
 
-app := $(wildcard $(src)js/*.js)
+app := $(src)js/index.js
+srcJS := $(wildcard $(src)js/*.js)
 minifiedJS := $(dist)index.min.js
 
 sass := $(wildcard $(src)sass/*.scss)
@@ -10,11 +11,10 @@ minifiedCSS := $(dist)main.min.css
 
 build : $(minifiedJS) $(minifiedCSS) ;
 
-$(minifiedJS) : $(app)
-	browserify $(app) \
-	-t reactify \
-	-t uglifyify \
-	-o $(minifiedJS)
+$(minifiedJS) : $(app) $(srcJS)
+	browserify \
+	-t [ reactify --es6 ] $(app) | \
+	uglifyjs -c -m > $(minifiedJS)
 
 $(minifiedCSS) : $(css)
 	cleancss -o $(minifiedCSS) $(css)
