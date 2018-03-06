@@ -1,0 +1,31 @@
+@import 'variables';
+
+@import 'components/Form';
+@import 'components/Footer';
+@import 'components/Header';
+
+@font-face {
+  src: url('/Dominique.otf');
+  font-family: 'Dominique';
+}
+
+@font-face {
+  src: url('/Moon Flower.ttf');
+  font-family: 'Moon';
+}
+
+:root {
+  font-size: 20px;
+}
+
+p, a, input, button {
+  font-family: 'Marcellus';
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Dominique';
+}
+
+.SmolBoi {
+  margin-top: 5%;
+}

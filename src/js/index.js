@@ -4,6 +4,7 @@ const ReactDOM = require('react-dom');
 const Header = require('./Header');
 const Form = require('./Form');
 const Description = require('./Description');
+const Footer = require('./Footer');
 
 window.onload = () => {
   ReactDOM.render(
@@ -11,6 +12,7 @@ window.onload = () => {
       <Header />
       <Description />
       <Form />
+      <Footer />
     </div>,
     // b/c trailing comma destroys this
     document.getElementById('app') // eslint-disable-line
