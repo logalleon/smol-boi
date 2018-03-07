@@ -1,18 +1,15 @@
-const { randomBytes } = require('crypto');
 const {
   HASH_SIZE,
-  HOST,
-  FOUR_OH_FOUR
+  FOUR_OH_FOUR,
 } = require('../../config');
 const { name: modelName } = require('../models/Redirect');
 const { name: hitModelName } = require('../models/Hit');
 
 class Redirect {
-
   /**
    * Creates a new redirect or updates and existing one
-   * @param {Object<Request>} req - the request 
-   * @param {Object<Response>} res - the response 
+   * @param {Object<Request>} req - the request
+   * @param {Object<Response>} res - the response
    */
   async create (req, res) {
     const { url } = req.body;
@@ -24,14 +21,14 @@ class Redirect {
         const { hash, timesGenerated } = instance.get({ plain: true });
         instance.set('timesGenerated', timesGenerated + 1);
         await instance.save();
-        res.json({ hash });
+        res.json({ hash, timesGenerated });
       // Otherwise, generate a new hash
       } else {
         const hash = this.generateHash();
         const values = { url, hash };
         // @TODO account for the very slim collision chance
         await R.create(values);
-        res.json({ hash });
+        res.json({ hash, timesGenerated: 1 });
       }
     } catch (error) {
       res.json({ error });
@@ -40,8 +37,8 @@ class Redirect {
 
   /**
    * Reads a redirect and creates a Hit
-   * @param {Object<Request>} req - the request 
-   * @param {Object<Response>} res - the response 
+   * @param {Object<Request>} req - the request
+   * @param {Object<Response>} res - the response
    */
   async read (req, res) {
     const { h: hash } = req.query;
@@ -98,8 +95,7 @@ class Redirect {
   generateHash () {
     const base36 = Math.random().toString(36);
     const tail = base36.split('.')[1];
-    return tail.slice(0, 8);
+    return tail.slice(0, HASH_SIZE);
   }
-
 }
 module.exports = Redirect;
