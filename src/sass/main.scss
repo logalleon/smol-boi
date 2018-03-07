@@ -3,6 +3,8 @@
 @import 'components/Form';
 @import 'components/Footer';
 @import 'components/Header';
+@import 'components/FourOhFour';
+@import 'components/Description';
 
 @font-face {
   src: url('/Dominique.otf');
@@ -16,16 +18,40 @@
 
 :root {
   font-size: 20px;
+  overflow-x: hidden;
 }
 
 p, a, input, button {
   font-family: 'Marcellus';
+  color: $darkGray;
+  margin-bottom: $pmd;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Dominique';
+  color: $primary;
 }
 
 .SmolBoi {
-  margin-top: 5%;
+  min-height: 100vh;
+}
+
+.well {
+  padding: $psm;
+  border: 1px dashed $lightBlue;
+  border-radius: $psm;
+  p {
+    margin-bottom: 0;
+  }
+}
+
+a {
+  color: darken($primary, 10%);
+  &:visited {
+    color: lighten($primary, 5%);
+  }
+  &:hover {
+    color: inherit;
+    opacity: 0.8;
+  }
 }

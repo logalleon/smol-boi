@@ -12,8 +12,7 @@ class Form extends React.Component {
       linkReceived: false,
       linkCopied: false,
     };
-    this.inputUrlOnKeyUp = this.inputUrlOnKeyUp.bind(this);
-    this.clearLink = this.clearLink.bind(this);
+    this.generatedUrlOnChange = this.generatedUrlOnChange.bind(this);
     this.copyLink = this.copyLink.bind(this);
     this.resetForm = this.resetForm.bind(this);
     this.getFormattedUrl = this.getFormattedUrl.bind(this);
@@ -24,7 +23,7 @@ class Form extends React.Component {
     return `${HOST}/r?h=${hash}`;
   }
 
-  inputUrlOnKeyUp (e) {
+  generatedUrlOnChange (e) {
     const { value: url } = e.target;
     this.setState({ url });
   }
@@ -43,17 +42,9 @@ class Form extends React.Component {
     });
   }
 
-  clearLink (e) {
-    e.preventDefault();
-    const url = '';
-    this.setState({ url });
-    // Prevents preventDefault() from erroring
-    this.resetForm({});
-  }
-
   copyLink (e) {
     e.preventDefault();
-    this.shortenedUrlInput.select();
+    this.input.select();
     // This won't work on IE9, but hey this is a cool React app so yeah, f'IE
     document.execCommand('Copy');
     const linkCopied = true;
@@ -106,7 +97,8 @@ class Form extends React.Component {
               type='text'
               value={url}
               placeholder='Enter URL to Shorten'
-              onChange={this.inputUrlOnKeyUp}
+              onChange={this.generatedUrlOnChange}
+              ref={(input) => { this.input = input; }}
             />
             <input
               className='btn btn-success col-2'
@@ -129,11 +121,7 @@ class Form extends React.Component {
                 type='text'
                 value={this.getFormattedUrl(hash)}
                 onChange={this.resetForm}
-                ref={(input) => { this.shortenedUrlInput = input; }}
-              />
-              <button
-                className='fa fa-times Form__Clear'
-                onClick={this.clearLink}
+                ref={(input) => { this.input = input; }}
               />
               <button
                 className='btn btn-success col-2'
@@ -144,15 +132,14 @@ class Form extends React.Component {
             </div>
           </form>
           {linkCopied &&
-            <div className='well well-info'>
-              <p>Link Copied!<span className='fa fa-clipboard-check' /></p>
+            <div className='col-6 offset-3 well'>
+              <p className='text-center'>Link Copied!</p>
             </div>
           }
         </div>
       );
     }
   }
-
 }
 
 module.exports = Form;

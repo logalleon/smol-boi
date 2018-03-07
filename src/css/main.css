@@ -1,9 +1,36 @@
-.Form__Clear {
-  right: 0.5rem;
+.Form .btn-success {
+  border-color: #48a5c2;
+  background-color: #3688a1;
+  transition: 0.2s;
+}
+.Form .btn-success:hover {
+  opacity: 0.8;
+  transition: 0.2s;
 }
 
-.Header img {
-  margin: 0.5rem auto;
+.Header {
+  background-color: #a397e2;
+  padding: 0.5rem;
+}
+.Header h1 {
+  color: white;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.Header h1:hover {
+  transition: 0.4s;
+  color: #7d0b7d;
+}
+
+.FourOhFour {
+  margin-top: 5%;
+}
+.FourOhFour img {
+  margin: 0.5rem auto 1rem;
+}
+
+.Description img {
+  margin: 0.5rem auto 1rem;
 }
 
 @font-face {
@@ -16,16 +43,40 @@
 }
 :root {
   font-size: 20px;
+  overflow-x: hidden;
 }
 
 p, a, input, button {
   font-family: "Marcellus";
+  color: #3a3a44;
+  margin-bottom: 1rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: "Dominique";
+  color: #a397e2;
 }
 
 .SmolBoi {
-  margin-top: 5%;
+  min-height: 100vh;
+}
+
+.well {
+  padding: 0.5rem;
+  border: 1px dashed #b1d8ee;
+  border-radius: 0.5rem;
+}
+.well p {
+  margin-bottom: 0;
+}
+
+a {
+  color: #806fd7;
+}
+a:visited {
+  color: #b5abe8;
+}
+a:hover {
+  color: inherit;
+  opacity: 0.8;
 }

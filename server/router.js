@@ -15,4 +15,9 @@ router.get(FOUR_OH_FOUR, (req, res) => {
 router.get('/r/', redirect.read.bind(redirect));
 router.post('/r/', redirect.create.bind(redirect));
 
+// 404 for all else
+router.all('*', (req, res) => {
+  res.redirect(FOUR_OH_FOUR);
+});
+
 module.exports = router;

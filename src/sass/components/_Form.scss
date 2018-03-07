@@ -1,5 +1,15 @@
+@import '../variables';
+
 .Form {
-  &__Clear {
-    right: .5rem;
+  .btn {
+    &-success {
+      border-color: lighten($terciary, 10%);
+      background-color: $terciary;
+      transition: $trshort;
+      &:hover {
+        opacity: 0.8;
+        transition: $trshort;
+      }
+    }
   }
 }

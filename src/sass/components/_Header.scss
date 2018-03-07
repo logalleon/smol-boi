@@ -1,5 +1,15 @@
+@import '../variables';
+
 .Header {
-  img {
-    margin: .5rem auto;
+  background-color: $primary;
+  padding: $psm;
+  h1 {
+    color: white;
+    cursor: pointer;
+    transition: $trshort * 2;
+    &:hover {
+      transition: $trshort * 2;
+      color: $secondary;
+    }
   }
 }
