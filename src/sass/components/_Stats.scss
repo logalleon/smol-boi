@@ -1,0 +1,37 @@
+@import '../variables';
+
+.Stats {
+  ul {
+    list-style: none;
+    overflow-x: scroll;
+    li {
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #efefef;
+      p, span, h4 {
+        margin-bottom: 0;
+      }
+      p {
+        color: #999;
+        font-size: .7rem;
+      }
+      .Stats__HitCount {
+        margin-left: $pmd;
+        background-color: $primary;
+        height: $pmd;
+        display: inline-block;
+      }
+    }
+    .Stats__Hit {
+      margin-bottom: $psm;
+      padding-bottom: $psm;
+      p {
+        color: inherit;
+        font-size: inherit;
+      }
+      h4 {
+        margin-left: $pmd;
+      }
+    }
+  }
+}

@@ -41,6 +41,40 @@
   margin: 0.5rem auto 1rem;
 }
 
+.Stats ul {
+  list-style: none;
+  overflow-x: scroll;
+}
+.Stats ul li {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #efefef;
+}
+.Stats ul li p, .Stats ul li span, .Stats ul li h4 {
+  margin-bottom: 0;
+}
+.Stats ul li p {
+  color: #999;
+  font-size: 0.7rem;
+}
+.Stats ul li .Stats__HitCount {
+  margin-left: 1rem;
+  background-color: #a397e2;
+  height: 1rem;
+  display: inline-block;
+}
+.Stats ul .Stats__Hit {
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.Stats ul .Stats__Hit p {
+  color: inherit;
+  font-size: inherit;
+}
+.Stats ul .Stats__Hit h4 {
+  margin-left: 1rem;
+}
+
 @font-face {
   src: url("/Dominique.otf");
   font-family: "Dominique";
