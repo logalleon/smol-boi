@@ -19,14 +19,23 @@ class Hit {
     };
     try {
       const instances = await H.findAll(query);
-      // @TODO YES
-      const { url } = instances[0].redirect.get({ plain: true });
-      const hits = instances.map((instance) => {
-        const { createdAt } = instance.get({ plain: true });
-        return { createdAt };
-      });
-      res.json({ hash: redirectHash, hits, url });
+      // There are hits!
+      if (instances.length) {
+        const { url } = instances[0].redirect.get({ plain: true });
+        const hits = instances.map((instance) => {
+          const { createdAt } = instance.get({ plain: true });
+          return { createdAt };
+        });
+        res.json({ hash: redirectHash, hits, url });
+      // No hits, which means we have to pick up the url from the redirects table
+      } else {
+        const q = { where: { hash: redirectHash } };
+        const instance = await R.findOne(q);
+        const { url } = instance.get({ plain: true });
+        res.json({ hash: redirectHash, hits: [], url });
+      }
     } catch (error) {
+      console.log(error);
       res.json({ error });
     }
   }

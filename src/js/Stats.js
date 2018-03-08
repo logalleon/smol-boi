@@ -113,6 +113,23 @@ class Stats extends React.Component {
           </div>
         </div>
       );
+    } else if (url && !hits.length) {
+      const formattedHits = this.getFormattedHits(days, hits);
+      return (
+        <div className='Stats'>
+          <div className='row'>
+            <div className='col-8 offset-2'>
+              <h3 className='text-center'>{this.getFormattedUrl(hash)}</h3>
+              <h4 className='text-center'>{url}</h4>
+              <p className='text-center'>No hits for the last {days} days.
+              </p>
+              <ul>
+                {formattedHits}
+              </ul>
+            </div>
+          </div>
+        </div>
+      );
     } else {
       return (
         <div />
