@@ -59,7 +59,7 @@ class Stats extends React.Component {
     const now = new Date();
     const startDate = new Date(now.getTime() - (days * 24 * 60 * 60 * 1000));
     const oneDay = 24 * 60 * 60 * 1000;
-    for (let i = 0; i < days; i++) {
+    for (let i = 1; i <= days; i++) {
       const date = new Date(startDate.getTime() + (i * oneDay));
       const mdy = `${date.getMonth() + 1}-${date.getDate()}-${date.getFullYear()}`;
       if (hitCount[mdy]) {
